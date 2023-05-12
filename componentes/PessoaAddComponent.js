@@ -1,12 +1,28 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, ToastAndroid } from 'react-native'
 import React, { useState } from 'react'
 import {
   Button,
   Card,
   Input
 } from '@rneui/themed'
+import * as pessoaService from '../service/PessoaService'
+
+
 
 const PessoaAddComponent = ({navigation}) => {
+
+  const addPessoa = async () => {
+    try{
+      const res = await pessoaService.cadastrarPessoa({nome, idade, hobby})
+      console.log(res)
+      ToastAndroid.show('Pessoa cadastrada com sucesso', ToastAndroid.LONG)
+    }
+    catch(e){
+      console.log(e)
+      ToastAndroid.show('Falha. Tente novamente mais tarde.', ToastAndroid.LONG)
+    }
+    // navigation.goBack()
+  }
   const [nome, setNome] = useState('')
   const [idade, setIdade] = useState('')
   const [hobby, setHobby] = useState('')
@@ -37,6 +53,7 @@ const PessoaAddComponent = ({navigation}) => {
           <Button 
             title='OK'
             buttonStyle={styles.button}
+            onPress={() => addPessoa()}
           />
 
       </Card>
