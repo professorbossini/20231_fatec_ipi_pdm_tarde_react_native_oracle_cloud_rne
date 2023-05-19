@@ -9,7 +9,7 @@ export default () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="PessoaAdd">
+        initialRouteName="PessoaList">
         <Stack.Screen 
           name="PessoaAdd"
           component={PessoaAddTela}

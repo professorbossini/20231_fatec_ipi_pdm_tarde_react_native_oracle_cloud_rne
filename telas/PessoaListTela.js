@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import PessoaListComponent from '../componentes/PessoaListComponent'
 
-const PessoaListTela = () => {
+const PessoaListTela = ({navigation}) => {
   return (
-    <View>
-      <Text>PessoaListTela</Text>
+    <View style={{padding: 40}}>
+      <PessoaListComponent navigation={navigation}/>
     </View>
   )
 }
